@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <title>Geocoder App</title>
+    <header>
+        <link href="../static/main.css" rel="stylesheet">
+    </header>
+
+    <body>
+        <div class="container">
+            <h1>Geocoder</h1>
+            <h3>Welcome to my app. Get started below!</h1><br>
+            <h3>Upload a .csv file with addresses you want geocoded.</h3>
+            <form action="{{url_for('success_table')}}" method="POST" enctype="multipart/form-data">
+                <input type="file" id="myfile" name="myfile" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" required><br>
+                <input type="submit">
+            </form>
+            <div class="output">
+                {{text | safe}}
+                {% include [btn] ignore missing %}
+            </div>
+        </div>
+    </body>
+</html>
